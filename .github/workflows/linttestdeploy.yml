@@ -2,10 +2,10 @@ name: LintTestDeploy
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -36,7 +36,7 @@ jobs:
         run: |
           echo "Deploying application..."
           # Add your deployment commands here
-    test:
+  test:
       needs: lint-test-deploy
       runs-on: ubuntu-latest
       steps:
@@ -56,5 +56,11 @@ jobs:
         - name: Run tests with pytest
           run: |
             pytest
-    deploy:
+  deploy:
       needs: test
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repository
+          run: |
+            echo "Deploying application..."
+            # Add your deployment commands here
