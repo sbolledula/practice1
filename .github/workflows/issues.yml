@@ -6,6 +6,8 @@ jobs:
     output-issue:
         runs-on: ubuntu-latest
         steps:
-        - name: Output issue event
-          run: echo "${{ github.event.action }}"
+        - name: Output issue event action
+          run: echo "${{ toJson(github.event.action) }}"
+        - name: Handle issue event all details
+          run: echo "${{ toJson(github.event) }}"
             # You can add more steps here to handle the issue event as needed
