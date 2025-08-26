@@ -1,0 +1,11 @@
+name: Handle issues
+on:
+  issues:
+    types: [opened, edited, deleted, transferred, pinned, unpinned, closed, reopened, assigned, unassigned, labeled, unlabeled, milestoned, demilestoned]   
+jobs:
+    output-issue:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Output issue event
+          run: echo "${{ github.event.action }}"
+            # You can add more steps here to handle the issue event as needed
