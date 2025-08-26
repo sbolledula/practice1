@@ -37,7 +37,7 @@ jobs:
           echo "Deploying application..."
           # Add your deployment commands here
   test:
-      needs: lint-test-deploy
+      needs: lint
       runs-on: ubuntu-latest
       steps:
         - name: Checkout repository
